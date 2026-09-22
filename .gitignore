@@ -1,0 +1,31 @@
+# KiCad
+*.bak
+*-backups/
+_autosave-*
+fp-info-cache
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.lck
+sym-lib-table.bak
+fp-lib-table.bak
+
+# KiCad plot/fab outputs (regenerable)
+hardware/pcb/plots/
+hardware/pcb/gerbers/
+hardware/pcb/fab-outputs/
+
+# Firmware build artifacts (generic embedded toolchain)
+firmware/build/
+.pio/
+cmake-build*/
+*.o
+*.elf
+*.hex
+*.bin
+*.map
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
