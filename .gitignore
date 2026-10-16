@@ -34,8 +34,6 @@ Thumbs.db
 *.raw
 *.log
 *.op.raw
-*.fft
-*.plt
 *.asc.bak
 *.net.bak
 
