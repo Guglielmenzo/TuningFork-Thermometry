@@ -125,9 +125,39 @@ near 32.798 kHz; the peak output scales with R<sub>f</sub> (about −54 dB at
 100 Ω up to about +20 dB at 500 kΩ). At the peak, the 10 kΩ trace
 (≈ −14 dB ≈ 0.2 V) corresponds to ≈ 20 µA, which matches 1 V / R<sub>m</sub>.
 
+### Full front end (LTspice)
+
+Schematic: [`sim/ltspice/TuningFork_FrontEnd_Model.asc`](sim/ltspice/TuningFork_FrontEnd_Model.asc)
+(netlist: [`TuningFork_FrontEnd_Model.net`](sim/ltspice/TuningFork_FrontEnd_Model.net))
+
+![Front-end schematic](sim/images/frontend-schematic.png)
+
+This model adds the wiring between the readout and the fork in the fridge:
+
+- **Twisted pairs:** the drive and signal lines are each modeled as four RC
+  sections (6 Ω, 90 pF per section). These values are estimates.
+- **Wire crosstalk:** C<sub>x</sub> = 1 pF between the drive and signal lines (estimate).
+- **TIA:** LTC6240 on ±2.5 V, R<sub>f</sub> = 500 kΩ, with C<sub>f</sub> = 2 pF
+  across it to prevent ringing.
+- **Shunt compensation:** an inverted copy of the drive (E1, gain −1) is fed
+  into the TIA input through C<sub>c</sub> = 1.9 pF, matched to
+  C<sub>0</sub> + C<sub>x</sub>. This cancels the current through the fork's
+  electrode capacitance and the wire crosstalk, so only the motional current
+  reaches the amplifier.
+
+![Front-end AC response with compensation](sim/images/frontend-ac-response.png)
+
+With compensation, the response is a symmetric resonance peaking at about
++20 dB near 32.762 kHz, with a clean 180° phase transition through resonance.
+
+Without C<sub>c</sub>, the 1.9 pF of shunt capacitance pulls the
+anti-resonance in to about 32.779 kHz and skews the resonance:
+
+![Front-end AC response without compensation](sim/images/frontend-ac-response-no-cc.png)
+
 ## Status
 
-Requirements phase. First LTspice simulation (BVD fork model with TIA readout) complete; MATLAB signal processing next.
+Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
 
 ## Team
 
