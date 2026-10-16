@@ -103,9 +103,31 @@ where F<sub>0</sub> is the driving force on the prongs, U<sub>0</sub> the drive
 voltage amplitude, m the effective prong mass, k the prong spring constant,
 γ the damping, and Δω the resonance width (angular frequency).
 
+### Transimpedance readout (LTspice)
+
+Schematic: [`sim/ltspice/TuningForkModel.asc`](sim/ltspice/TuningForkModel.asc)
+
+![TIA readout schematic](sim/images/tia-schematic.png)
+
+The BVD model (R<sub>m</sub> = 50 kΩ, L<sub>m</sub> = 11.8 kH,
+C<sub>m</sub> = 2 fF, C<sub>0</sub> = 0.9 pF, datasheet values, not values in
+³He) is driven by a 1 V AC source, and its output current goes into an LTC6240
+transimpedance amplifier on ±2.5 V supplies. No noise sources are included.
+An AC sweep from 32.70 kHz to 32.80 kHz is stepped over feedback resistances
+R<sub>f</sub> = 100 Ω, 10 kΩ, 100 kΩ, and 500 kΩ.
+
+![TIA output vs frequency for each Rf](sim/images/tia-ac-response-rf-sweep.png)
+
+The output voltage is V<sub>out</sub> = −I<sub>e</sub>R<sub>f</sub>, so each
+trace converts to fork current using its known R<sub>f</sub>. All traces show
+the series resonance near 32.761 kHz and the anti-resonance from C<sub>0</sub>
+near 32.798 kHz; the peak output scales with R<sub>f</sub> (about −54 dB at
+100 Ω up to about +20 dB at 500 kΩ). At the peak, the 10 kΩ trace
+(≈ −14 dB ≈ 0.2 V) corresponds to ≈ 20 µA, which matches 1 V / R<sub>m</sub>.
+
 ## Status
 
-Requirements phase; readout circuit simulations (SPICE, MATLAB) starting October 2026.
+Requirements phase. First LTspice simulation (BVD fork model with TIA readout) complete; MATLAB signal processing next.
 
 ## Team
 
