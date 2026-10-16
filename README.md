@@ -35,6 +35,17 @@ the fork, measure its resonant response, and convert it to a temperature.
 
 - `hardware/pcb/` — readout schematic and layout (KiCad)
 - `hardware/datasheets/` — component datasheets
+- `sim/` — LTspice simulations
+  - `ltspice/` — schematics (`.asc`), netlists, plot settings
+  - `data/` — exported waveforms/results (CSV/TXT)
+  - `images/` — plots and screenshots
+- `signal-processing/` — MATLAB signal processing
+  - `scripts/` — `.m` / `.mlx` code
+  - `data/` — input and processed data
+  - `figures/` — generated plots
+- `cad/` — mechanical CAD and production files
+  - `models/` — part and assembly models
+  - `production/` — fabrication and assembly outputs (Gerbers, drawings, BOMs)
 - `firmware/` — readout interface code
 - `docs/` — project plan, requirements, meeting notes
 - `test/` — validation and calibration data
