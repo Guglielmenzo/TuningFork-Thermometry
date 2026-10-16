@@ -86,18 +86,13 @@ $$F_0 = \frac{a}{2}\,U_0$$
 
 $$R = \frac{2m\gamma}{a^2}, \qquad L = \frac{2m}{a^2}, \qquad C = \frac{a^2}{2k}$$
 
-The fork constant a can be found from the measured resonance,
-
-$$a = \sqrt{\frac{4\pi m_e I_0\,\Delta f}{V_0}}$$
-
-or, as defined in Blaauwgeers et al., from the circuit parameters,
+with the fork constant
 
 $$a = \sqrt{\frac{2m\,\Delta\omega}{R}}$$
 
-where F<sub>0</sub> is the driving force on the prongs, U<sub>0</sub> (V<sub>0</sub>)
-the drive voltage amplitude, m (m<sub>e</sub>) the effective prong mass,
-k the prong spring constant, γ the damping, I<sub>0</sub> the current amplitude
-at resonance, Δf the resonance width, and Δω = 2πΔf.
+where F<sub>0</sub> is the driving force on the prongs, U<sub>0</sub> the drive
+voltage amplitude, m the effective prong mass, k the prong spring constant,
+γ the damping, and Δω the resonance width (angular frequency).
 
 ## Status
 
