@@ -29,3 +29,31 @@ cmake-build*/
 Thumbs.db
 .vscode/
 .idea/
+
+# SPICE simulation outputs (regenerable from netlists)
+*.raw
+*.log
+*.op.raw
+*.fft
+*.plt
+*.asc.bak
+*.net.bak
+
+# MATLAB generated/temporary files (keep .m and .mlx sources)
+*.asv
+*.autosave
+*.mex*
+slprj/
+*.slxc
+codegen/
+*.mat.tmp
+
+# Large data dumps from simulations/measurements (keep small CSVs explicitly if needed)
+sim-output/
+*.h5
+
+# Personal / scratch
+scratch/
+*.tmp
+~$*
+desktop.ini
