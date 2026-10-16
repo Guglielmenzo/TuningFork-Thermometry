@@ -76,6 +76,25 @@ widening the resonance). Because the viscosity of the ³He/⁴He mixture depends
 on temperature, the resonance frequency and width measured from I<sub>e</sub>
 give the temperature.
 
+### Circuit parameters
+
+The L, R, C values are approximated from the fork's mechanical properties
+using the model of Blaauwgeers et al. (2007), *Quartz Tuning Fork:
+Thermometer, Pressure- and Viscometer for Helium Liquids*:
+
+$$F_0 = \frac{a}{2}\,U_0$$
+
+$$R = \frac{2m\gamma}{a^2}, \qquad L = \frac{2m}{a^2}, \qquad C = \frac{a^2}{2k}$$
+
+with the fork constant
+
+$$a = \sqrt{\frac{4\pi m_e I_0\,\Delta f}{V_0}}$$
+
+where F<sub>0</sub> is the driving force on the prongs, U<sub>0</sub> (V<sub>0</sub>)
+the drive voltage amplitude, m (m<sub>e</sub>) the effective prong mass,
+k the prong spring constant, γ the damping, I<sub>0</sub> the current amplitude
+at resonance, and Δf the resonance width.
+
 ## Status
 
 Requirements phase; readout circuit simulations (SPICE, MATLAB) starting October 2026.
