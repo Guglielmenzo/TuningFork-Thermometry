@@ -50,6 +50,32 @@ the fork, measure its resonant response, and convert it to a temperature.
 - `docs/` — project plan, requirements, meeting notes
 - `test/` — validation and calibration data
 
+## Simulation
+
+### Tuning fork model
+
+The quartz tuning fork is modeled electrically with the Butterworth–Van Dyke
+equivalent circuit:
+
+![Tuning fork equivalent circuit](sim/images/tuning-fork-bvd-model.png)
+
+- **Motional branch (L, R, C in series):** represents the fork's mechanical
+  resonance. L corresponds to the effective mass of the tines, C to their
+  stiffness, and R to the damping (energy lost to the surrounding fluid and
+  internal losses). This branch carries the motional current I<sub>m</sub>.
+- **Parallel capacitance C<sub>0</sub>:** the static capacitance of the fork's
+  electrodes and leads, which carries the background current I<sub>c</sub>.
+- **Drive and response:** the fork is driven with an AC voltage
+  V<sub>0</sub>e<sup>iωt</sup>, and the measured output is the total current
+  I<sub>e</sub> = I<sub>m</sub> + I<sub>c</sub>.
+
+The motional branch resonates at f<sub>0</sub> = 1 / (2π√(LC)) with quality
+factor Q = (1/R)√(L/C). In liquid helium, the fluid's density adds effective
+mass (lowering f<sub>0</sub>) and its viscosity adds damping (raising R and
+widening the resonance). Because the viscosity of the ³He/⁴He mixture depends
+on temperature, the resonance frequency and width measured from I<sub>e</sub>
+give the temperature.
+
 ## Status
 
 Requirements phase; readout circuit simulations (SPICE, MATLAB) starting October 2026.
