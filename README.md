@@ -86,7 +86,16 @@ $$F_0 = \frac{a}{2}\,U_0$$
 
 $$R = \frac{2m\gamma}{a^2}, \qquad L = \frac{2m}{a^2}, \qquad C = \frac{a^2}{2k}$$
 
-with the fork constant
+Nominal values for the fork:
+
+| Element | Value |
+| --- | --- |
+| R (R₁) | 50 kΩ (max) |
+| L (L₁) | ≈ 11.8 kH |
+| C (C₁) | 2.0 fF |
+| C₀ | 0.9 pF, plus cable capacitance |
+
+The fork constant is
 
 $$a = \sqrt{\frac{2m\,\Delta\omega}{R}}$$
 
