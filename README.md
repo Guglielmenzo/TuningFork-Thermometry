@@ -170,6 +170,16 @@ the peak motional current is V<sub>drive</sub>/R<sub>m</sub>:
 
 ![Front-end AC response with Rm swept](sim/images/frontend-ac-response-rm-sweep.png)
 
+Transient response of the front end to a 0.2 V drive burst at resonance
+(32.761 kHz) lasting 0.15 s, with R<sub>m</sub> = 500 kΩ and R<sub>f</sub> = 500 kΩ.
+The output rings up to a peak of about 0.2 V while driven and rings down after
+the drive stops, both with a time constant of about 47 ms
+(τ = 2L<sub>m</sub>/R<sub>m</sub>). Later models must account for this: after
+each change in drive frequency, the fork needs several time constants
+(about 5τ ≈ 0.25 s here) to settle before a new measurement can begin.
+
+![Front-end transient ring-up and ring-down](sim/images/frontend-transient-ringdown.png)
+
 ## Status
 
 Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
