@@ -180,6 +180,36 @@ each change in drive frequency, the fork needs several time constants
 
 ![Front-end transient ring-up and ring-down](sim/images/frontend-transient-ringdown.png)
 
+#### Ring-down time (analytical)
+
+With the drive removed, Kirchhoff's voltage law around the fork's motional branch gives
+
+$$L_m \frac{d^2 i}{dt^2} + R_m \frac{di}{dt} + \frac{i}{C_m} = 0$$
+
+Substituting $i = e^{st}$ gives the characteristic equation $L_m s^2 + R_m s + 1/C_m = 0$, with roots
+
+$$s = -\frac{R_m}{2L_m} \pm j\sqrt{\frac{1}{L_m C_m} - \left(\frac{R_m}{2L_m}\right)^2} \approx -\frac{R_m}{2L_m} \pm j\omega_0$$
+
+since $R_m/2L_m \ll \omega_0$. The current therefore oscillates at $f_0$ inside an exponentially decaying envelope:
+
+$$i(t) = I_0 \, e^{-t/\tau} \cos(\omega_0 t + \phi), \qquad \tau = \frac{2L_m}{R_m}$$
+
+When the fork is driven on resonance from rest, the envelope rises as $I_\infty\left(1 - e^{-t/\tau}\right)$ with the same $\tau$. The time constant is tied to the resonance width $\Delta f$ (full width at half power) and the quality factor:
+
+$$\Delta f = \frac{R_m}{2\pi L_m}, \qquad \tau = \frac{1}{\pi \Delta f}, \qquad Q = \frac{\omega_0 L_m}{R_m} = \pi f_0 \tau$$
+
+For $L_m = 11.8$ kH, $C_m = 2.0$ fF and $R_m = 500$ kΩ:
+
+| Quantity | Value |
+|---|---|
+| $f_0 = 1/(2\pi\sqrt{L_m C_m})$ | 32 761.5 Hz |
+| $\tau = 2L_m/R_m$ | 47.2 ms |
+| $\Delta f = R_m/(2\pi L_m)$ | 6.74 Hz |
+| $Q = \omega_0 L_m/R_m$ | 4 858 |
+| Steady-state peak, $V_d R_f/R_m \cdot 1/\sqrt{1+(\omega_0 R_f C_f)^2}$, with $V_d$ = 0.2 V, $R_f$ = 500 kΩ, $C_f$ = 2 pF | 0.196 V |
+
+These match the simulated transient (peak ≈ 0.2 V, τ ≈ 47 ms). After a change in drive frequency the leftover transient falls to $e^{-n}$ after $n\tau$, so waiting 5τ (236 ms here) leaves 0.7%.
+
 ## Status
 
 Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
