@@ -155,6 +155,10 @@ anti-resonance in to about 32.779 kHz and skews the resonance:
 
 ![Front-end AC response without compensation](sim/images/frontend-ac-response-no-cc.png)
 
+Sweeping C<sub>x</sub>, the crosstalk estimation, yields this:
+
+![Front-end AC response with Cx swept](sim/images/frontend-ac-response-cx-sweep.png)
+
 ## Status
 
 Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
