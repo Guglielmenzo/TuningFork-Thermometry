@@ -159,6 +159,10 @@ Sweeping C<sub>x</sub>, the crosstalk estimation, yields this:
 
 ![Front-end AC response with Cx swept](sim/images/frontend-ac-response-cx-sweep.png)
 
+Sweeping R<sub>m</sub> allows us to simulate the dampening that decreasing helium temperatures causes, and the change in resonance due to that. This plot shows R<sub>m</sub> values of 10k, 25k, 50k, 100k, 500k, 1Meg, and 2.5Meg:
+
+![Front-end AC response with Rm swept](sim/images/frontend-ac-response-rm-sweep.png)
+
 ## Status
 
 Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
