@@ -155,11 +155,18 @@ anti-resonance in to about 32.779 kHz and skews the resonance:
 
 ![Front-end AC response without compensation](sim/images/frontend-ac-response-no-cc.png)
 
-Sweeping C<sub>x</sub>, the crosstalk estimation, yields this:
+Sweeping the crosstalk estimate C<sub>x</sub> about ±0.5 pF around 1 pF, with
+C<sub>c</sub> fixed at 1.9 pF, shows the effect of a compensation mismatch. The
+resonance peak (≈ +20 dB at 32.762 kHz) is unchanged, while the off-resonance
+level shifts by up to about ±4 dB and the response becomes asymmetric:
 
 ![Front-end AC response with Cx swept](sim/images/frontend-ac-response-cx-sweep.png)
 
-Sweeping R<sub>m</sub> allows us to simulate the dampening that decreasing helium temperatures causes, and the change in resonance due to that. This plot shows R<sub>m</sub> values of 10k, 25k, 50k, 100k, 500k, 1Meg, and 2.5Meg:
+Sweeping R<sub>m</sub> models the increased damping of the fork as the helium
+viscosity rises at lower temperatures. For R<sub>m</sub> = 10k, 25k, 50k, 100k,
+500k, 1Meg, and 2.5Meg, the resonance frequency stays at about 32.761 kHz while
+the peak drops from about +34 dB to −13.5 dB and the resonance broadens, since
+the peak motional current is V<sub>drive</sub>/R<sub>m</sub>:
 
 ![Front-end AC response with Rm swept](sim/images/frontend-ac-response-rm-sweep.png)
 
