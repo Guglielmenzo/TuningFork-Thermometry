@@ -64,6 +64,12 @@ Full details, plots, and derivations are in [`sim/README.md`](sim/README.md).
   rings up and down with τ = 2L<sub>m</sub>/R<sub>m</sub> ≈ 47 ms at
   R<sub>m</sub> = 500 kΩ, so each frequency step needs about 0.25 s to settle.
 
+## Measurements
+
+Bench results are in [`test/README.md`](test/README.md). First measurement: the fork read out through the TIA with no anti-ringing capacitor, peaking at +3.79 dB at 32.76 kHz.
+
+![Measured fork and TIA frequency response, no anti-ringing capacitor](test/images/fork-tia-fra-no-cf.png)
+
 ## Status
 
 Requirements phase. LTspice front-end model (fork, twisted-pair wiring, crosstalk, shunt compensation, TIA) complete; MATLAB signal processing next.
